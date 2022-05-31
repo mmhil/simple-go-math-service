@@ -1,14 +1,22 @@
 package domath
 
-func DoAllIntMathFunctions(num1 int, num2 int) [6]int {
-	var resultArray = [6]int{
-		AddIntegers(num1, num2),
-		SubtractIntegers(num1, num2),
-		MultiplyInt(num1, num2),
-		DivideInt(num1, num2),
-		GetRemainderInt(num1, num2),
-		addThenDivideInt(num1, num2),
+import (
+	"fmt"
+	"strconv"
+)
+
+func ReturnStringsOfAllMathFunctions(num1 int, num2 int) [6]string {
+	num1str := strconv.Itoa(num1)
+	num2str := strconv.Itoa(num2)
+	var resultArray = [6]string{
+		fmt.Sprintf("%q + %q = %q \n", num1str, num2str, strconv.Itoa(AddIntegers(num1, num2))),
+		fmt.Sprintf("%q - %q = %q \n", num1str, num2str, strconv.Itoa(SubtractIntegers(num1, num2))),
+		fmt.Sprintf("%q * %q = %q \n", num1str, num2str, strconv.Itoa(MultiplyInt(num1, num2))),
+		fmt.Sprintf("%q / %q = %q \n", num1str, num2str, strconv.Itoa(DivideInt(num1, num2))),
+		fmt.Sprintf("Remainder of %q / %q = %q \n", num1str, num2str, strconv.Itoa(GetRemainderInt(num1, num2))),
+		fmt.Sprintf("(%q + %q) / %q = %q \n", num1str, num2str, num2str, strconv.Itoa(addThenDivideInt(num1, num2))),
 	}
+
 	return resultArray
 }
 
